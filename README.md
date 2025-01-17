@@ -123,25 +123,24 @@ You will build a **Job Management System** with the following features:
 1. **User lands on the Job List Page**.  
    - Jobs are fetched from the backend (`GET /jobs`) and displayed in a table.  
 
-   **[Insert Diagram 1 Here]**  
-
-   **Diagram Explanation**:  
-   This diagram illustrates the flow of fetching and displaying jobs on the Job List Page. It shows how data is retrieved from the backend API and passed to frontend components like `JobTable` for rendering.  
-
-2. **Clicking "Add Job" navigates to the Add/Edit Job Page**.  
-   - **[Insert Diagram 2 Here]**  
+2. **Jobs are fetched from the backend (GET /jobs) and displayed in a table**.  
+   - ![1](https://github.com/user-attachments/assets/f2059043-8176-4038-963d-a14009f402f6)
 
    **Diagram Explanation**:  
    This diagram shows the flow when the "Add Job" button is clicked. It transitions the user to a blank form for creating a new job, with the submission triggering a `POST /jobs` API request.  
 
-3. **Clicking "Update" navigates to the Add/Edit Job Page with pre-filled fields**.  
-   - **[Insert Diagram 3 Here]**  
+3. **Clicking "Add Job" navigates to the Add/Edit Job Page**.  
+
+4. Submitting the form sends data to POST /jobs (for new jobs) or PUT /jobs/{id} (for updates).
+
+  - ![2](https://github.com/user-attachments/assets/7aec2251-55bc-48ff-be03-3d7170787c99)
 
    **Diagram Explanation**:  
-   This diagram represents the flow for editing an existing job. It starts with fetching job details (`GET /jobs/{id}`) and then displays the data in a pre-filled form for updates, followed by a `PUT /jobs/{id}` API call upon submission.  
+   This diagram shows the flow when the "Add Job" button is clicked. It transitions the user to a blank form for creating a new job, with the submission triggering a `POST /jobs` API request.
+   Then the flow for editing an existing job. It starts with fetching job details `GET /jobs/{id}` and then displays the data in a pre-filled form for updates, followed by a `PUT /jobs/{id}` API call upon submission.
 
-4. After successful submission, the user is redirected back to the Job List Page.  
 
+5. After successful submission, the user is redirected back to the Job List Page
 ---
 
 ## **Submission Process**
