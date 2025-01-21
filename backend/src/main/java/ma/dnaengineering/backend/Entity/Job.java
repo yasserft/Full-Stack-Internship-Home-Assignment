@@ -1,28 +1,42 @@
 package ma.dnaengineering.backend.Entity;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import org.hibernate.type.descriptor.jdbc.DecimalJdbcType;
-import org.w3c.dom.Text;
+import lombok.*;
 
-import java.sql.Timestamp;
-
+import java.time.LocalDateTime;
 @Entity
-@Data
-@NoArgsConstructor
+@Setter
+@Getter
 @AllArgsConstructor
-@Table(name="students")
+@NoArgsConstructor
+@Builder
 public class Job {
-    @Id
-    @GeneratedValue(strategy= GenerationType.AUTO)
-    public Long id;
-    public String title;
-    public String description;
-    public String location;
-    public DecimalJdbcType salary;
-    public Timestamp postedAt;
-    public Timestamp updatedAt;
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @Column(nullable = false)
+    private String title;
+
+    @Column(nullable = false,columnDefinition = "TEXT")
+    private String description;
+
+    private String location;
+
+    private Double salary = 0.0;
+
+    private LocalDateTime postedAt;
+
+    private LocalDateTime updatedAt;
+
+    @PrePersist
+    protected void onPost() {
+        postedAt = LocalDateTime.now();
+    }
+
+    @PreUpdate
+    protected void onUpdate() {
+        updatedAt = LocalDateTime.now();
+    }
 }
